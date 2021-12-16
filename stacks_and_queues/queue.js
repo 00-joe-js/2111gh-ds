@@ -1,25 +1,15 @@
+const { LinkedList } = require("./linked-list-solution");
+console.log(LinkedList);
+
 class Queue {
     constructor() {
-        this.head = null;
-        this.tail = null;
-        this.wholeLine = [];
+        this.wholeLine = new LinkedList();
     }
     enqueue(value) {
-        if (this.head === null) {
-            this.head = value;
-        }
-        this.tail = value;
-        this.wholeLine.push(value);
-        // en -3 en -9 en -4
-        // head = 3
-        // tail = 4
-        // whole - [3, 9, 4]
+        this.wholeLine.addToTail(value);
     }
     dequeue() {
-        const valueToReturn = this.head;
-        this.wholeLine.shift();
-        this.head = this.wholeLine[0] || null;
-        return valueToReturn;
+        return this.wholeLine.removeHead();
     }
 }
 
